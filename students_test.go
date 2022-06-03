@@ -76,5 +76,10 @@ func TestNewMatrix(t *testing.T){
 		t.Error("Ошибка")
 	}
 
+	_, err1 := New("10.0, 20.0, 30.0, 40.0, 50.0, 60.0, 70.0, 80.0, 90.0")
+	if err1 != nil {
+		t.Error("Ошибка, значения не преобразуются в число")
+	}
+
 //	fmt.Println("m0 ", m0)
 }
