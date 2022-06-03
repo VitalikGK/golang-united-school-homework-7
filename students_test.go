@@ -69,17 +69,40 @@ func TestSwap(t *testing.T){
 
 func TestNewMatrix(t *testing.T){
 
-	//var m0(Matrix)
+	
 
-	_, err := New("10 20 30 40 50 60 70 80 90")
+	m, err := New("10 20 30 40 50 60 70 80 90")
 	if err != nil {
 		t.Error("Ошибка")
 	}
 
-	_, err1 := New("10.0, 20.0, 30.0, 40.0, 50.0, 60.0, 70.0, 80.0, 90.0")
-	if err1 != nil {
-		t.Error("Ошибка, значения не преобразуются в число")
-	}
+	var cols0 [][]int
+	for i :=0; i < 9; i++{
+		cols0 = append(cols0, []int{(i+1)*10})
+	} 
 
-//	fmt.Println("m0 ", m0)
+	cols := m.Cols()
+
+
+	// fmt.Println("cols ", cols)
+	// fmt.Println("cols ", cols0)
+
+	b := compareSlices(cols, cols0)
+	if b != true {
+		t.Error("Ошибка, салйс не верный")
+	}
 }
+
+func compareSlices(s1, s2 [][]int) bool {
+	if len(s1) != len(s2) {
+	return false
+	}
+	
+	for i := 0; i < len(s1); i++ {
+	if s1[i][0] != s2[i][0] {
+	return false
+	}
+	}
+	
+	return true
+   }
