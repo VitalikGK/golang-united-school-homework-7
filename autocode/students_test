@@ -48,6 +48,35 @@ func TestLess(t *testing.T){
 	}
 }
 
+func TestLessError(t *testing.T){
+	var p People
+	t1 := time.Now()
+	p = append(p, Person{firstName: "firstName", lastName: "Test_lastName", birthDay: t1 })
+	p = append(p, Person{firstName: "firstName", lastName: "Test_lastName1", birthDay: t1 })
+
+	
+	err := p.Less(0,1)
+
+	if err != true{
+		t.Error("Ожидается true, возвращает ", err)
+	}
+}
+
+func TestLessError1(t *testing.T){
+	var p People
+	t1 := time.Now()
+	p = append(p, Person{firstName: "firstName", lastName: "Test_lastName", birthDay: t1 })
+	p = append(p, Person{firstName: "firstName1", lastName: "Test_lastName1", birthDay: t1 })
+
+	
+	err := p.Less(0,1)
+
+	if err != true{
+		t.Error("Ожидается true, возвращает ", err)
+	}
+}
+
+
 func TestSwap(t *testing.T){
 	var p People
 	p = append(p, Person{firstName: "firstNam", lastName: "Test_lastName", birthDay: time.Now().Add(time.Minute *2) })
