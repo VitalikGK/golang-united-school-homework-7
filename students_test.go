@@ -102,7 +102,7 @@ func TestNewMatrix(t *testing.T){
 		t.Error("Ошибка, слайс не верный")
 	}
 
-	 fmt.Println("Rows ", rows)
+//	 fmt.Println("Rows ", rows)
 
 
 }
