@@ -104,10 +104,15 @@ func TestNewMatrix(t *testing.T){
 
 	n := m.Set(0,1, 77)
 
+	n0 := m.Set(-1,10,77)
+
 	if !n || m.data[1] != 77 {
-		t.Error("Ошибка установки значения")
+		t.Error("Ошибка установки значения слайса")
 	}
 
+	if n0 != false {
+		t.Error("Нет проверки выхода за границы слайса")
+	}
 //	 fmt.Println("Rows ", rows)
 
 
