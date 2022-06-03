@@ -69,12 +69,12 @@ func TestSwap(t *testing.T){
 
 func TestNewMatrix(t *testing.T){
 
-	var m0(*Matrix)
+	//var m0(Matrix)
 
-	m0, err := New("10, 20, 30, 40, 50, 60, 70, 80, 90")
+	_, err := New("10 20 30 40 50 60 70 80 90")
 	if err != nil {
 		t.Error("Ошибка")
 	}
 
-	fmt.Println("m0 ", m0)
+//	fmt.Println("m0 ", m0)
 }
