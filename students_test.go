@@ -69,20 +69,34 @@ func TestSwap(t *testing.T){
 
 func TestNewMatrix(t *testing.T){
 
-	
-
 	_, err := New("10 20 30 40 50 60 70 80 90")
 	if err != nil {
 		t.Error("Ошибка")
 	}
 
-	_, err1 := New("10 20 30 40 50 60 70 80 90 \n 10 20 30 \n")
-	if err1 == nil {
+
+}
+
+func TestNewMatrixError1(t *testing.T){
+
+	m, err1 := New("10 20 30 40 50 60 70 80 90 \n 10 20 30 \n")
+	if err1 == nil || m != nil{
 		t.Error("Ошибка ")
 	}
 
 
 }
+
+func TestNewMatrixError2(t *testing.T){
+	
+	m0, err2 := New(" ")
+	if err2 == nil || m0 != nil{
+		t.Error("Ошибка ")
+	}
+
+}
+
+
 
 func TestNewMatrixCols(t *testing.T){
 
