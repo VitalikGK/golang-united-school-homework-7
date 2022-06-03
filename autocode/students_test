@@ -102,6 +102,12 @@ func TestNewMatrix(t *testing.T){
 		t.Error("Ошибка, слайс не верный")
 	}
 
+	n := m.Set(0,1, 77)
+
+	if !n || m.data[1] != 77 {
+		t.Error("Ошибка установки значения")
+	}
+
 //	 fmt.Println("Rows ", rows)
 
 
