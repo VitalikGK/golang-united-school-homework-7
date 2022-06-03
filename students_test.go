@@ -96,7 +96,17 @@ func TestNewMatrixError2(t *testing.T){
 
 }
 
+func TestNewMatrixError3(t *testing.T){
+	
+	m0, err3 := New("10 20 30 40 50 60 70 80 90 \n 10, 20, 30, 40, 50, 60, 70, 80, 90")
+	if err3 == nil || m0 != nil{
+		t.Error("Ошибка ")
+	}
+	//  if (*(*err3.(data)).Err.(data)).s != "invalid syntax"{
+	//  	t.Error("Ошибка")
+	//  }
 
+}
 
 func TestNewMatrixCols(t *testing.T){
 
