@@ -84,13 +84,27 @@ func TestNewMatrix(t *testing.T){
 	cols := m.Cols()
 
 
-	// fmt.Println("cols ", cols)
-	// fmt.Println("cols ", cols0)
 
 	b := compareSlices(cols, cols0)
 	if b != true {
-		t.Error("Ошибка, салйс не верный")
+		t.Error("Ошибка, слайс не верный")
 	}
+
+	s := []int{10,20,30,40,50,60,70,80,90}
+
+	var rows0 [][]int
+		rows0 = append(rows0, s)
+
+	rows := m.Rows()
+
+	b0 := compareSlicesR(rows, rows0)
+	if b0 != true {
+		t.Error("Ошибка, слайс не верный")
+	}
+
+	 fmt.Println("Rows ", rows)
+
+
 }
 
 func compareSlices(s1, s2 [][]int) bool {
@@ -100,6 +114,20 @@ func compareSlices(s1, s2 [][]int) bool {
 	
 	for i := 0; i < len(s1); i++ {
 	if s1[i][0] != s2[i][0] {
+	return false
+	}
+	}
+	
+	return true
+   }
+
+   func compareSlicesR(s1, s2 [][]int) bool {
+	if len(s1) != len(s2) {
+	return false
+	}
+	
+	for i := 0; i < len(s1); i++ {
+	if s1[0][i] != s2[0][i] {
 	return false
 	}
 	}
