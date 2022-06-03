@@ -71,6 +71,18 @@ func TestNewMatrix(t *testing.T){
 
 	
 
+	_, err := New("10 20 30 40 50 60 70 80 90")
+	if err != nil {
+		t.Error("Ошибка")
+	}
+
+
+}
+
+func TestNewMatrixCols(t *testing.T){
+
+	
+
 	m, err := New("10 20 30 40 50 60 70 80 90")
 	if err != nil {
 		t.Error("Ошибка")
@@ -90,6 +102,18 @@ func TestNewMatrix(t *testing.T){
 		t.Error("Ошибка, слайс не верный")
 	}
 
+}
+
+func TestNewMatrixRows(t *testing.T){
+
+	
+
+	m, err := New("10 20 30 40 50 60 70 80 90")
+	if err != nil {
+		t.Error("Ошибка")
+	}
+
+
 	s := []int{10,20,30,40,50,60,70,80,90}
 
 	var rows0 [][]int
@@ -101,6 +125,17 @@ func TestNewMatrix(t *testing.T){
 	if b0 != true {
 		t.Error("Ошибка, слайс не верный")
 	}
+}
+
+func TestNewMatrixSet(t *testing.T){
+
+	
+
+	m, err := New("10 20 30 40 50 60 70 80 90")
+	if err != nil {
+		t.Error("Ошибка")
+	}
+
 
 	n := m.Set(0,1, 77)
 
@@ -113,10 +148,9 @@ func TestNewMatrix(t *testing.T){
 	if n0 != false {
 		t.Error("Нет проверки выхода за границы слайса")
 	}
-//	 fmt.Println("Rows ", rows)
-
 
 }
+
 
 func compareSlices(s1, s2 [][]int) bool {
 	if len(s1) != len(s2) {
